@@ -112,8 +112,7 @@ def profile_page():
         st.subheader("身體資訊")
         height = st.number_input("身高 (cm)", min_value=100, max_value=250, 
                                 value=int(profile['height_cm']) if profile and profile['height_cm'] else 170)
-        weight = st.number_input("體重 (kg)", min_value=30.0, max_value=200.0, value=float(profile['weight_kg']) if profile and profile['weight_kg'] else 70.0) 
-                                value=float(profile['weight_kg']) if profile and profile['weight_kg'] else 70)
+        weight = st.number_input("體重 (kg)", min_value=30.0, max_value=200.0, value=float(profile['weight_kg']) if profile and profile['weight_kg'] else 70.0)
         age = st.number_input("年齡", min_value=10, max_value=100,
                              value=int(profile['age']) if profile and profile['age'] else 30)
         gender = st.selectbox("性別", ["M", "F"],
@@ -127,8 +126,7 @@ def profile_page():
             format_func=calculations.get_activity_level_name,
             index=2 if not profile else ["sedentary", "light", "moderate", "active", "very_active"].index(profile['activity_level'])
         )
-        target_weight = st.number_input("目標體重 (kg)", min_value=30, max_value=200,
-                                       value=float(profile['target_weight_kg']) if profile and profile['target_weight_kg'] else 65)
+        target_weight = st.number_input("目標體重 (kg)", min_value=30.0, max_value=200.0, value=float(profile['target_weight_kg']) if profile and profile['target_weight_kg'] else 65.0)
         target_date = st.date_input("目標日期",
                                    value=datetime.strptime(profile['target_date'], '%Y-%m-%d').date() if profile and profile['target_date'] else date.today() + timedelta(days=90))
     
