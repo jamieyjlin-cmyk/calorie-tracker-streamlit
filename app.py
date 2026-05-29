@@ -112,7 +112,7 @@ def profile_page():
         st.subheader("身體資訊")
         height = st.number_input("身高 (cm)", min_value=100, max_value=250, 
                                 value=int(profile['height_cm']) if profile and profile['height_cm'] else 170)
-        weight = st.number_input("體重 (kg)", min_value=30, max_value=200, 
+        weight = st.number_input("體重 (kg)", min_value=30.0, max_value=200.0, value=float(profile['weight_kg']) if profile and profile['weight_kg'] else 70.0) 
                                 value=float(profile['weight_kg']) if profile and profile['weight_kg'] else 70)
         age = st.number_input("年齡", min_value=10, max_value=100,
                              value=int(profile['age']) if profile and profile['age'] else 30)
